@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "253522439395",
+    "firebase_url": "https://inotrack-8acd3.firebaseio.com",
+    "project_id": "inotrack-8acd3",
+    "storage_bucket": "inotrack-8acd3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253522439395:android:a8f47f980bcc2476",
+        "android_client_info": {
+          "package_name": "com.example.vid.inotrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253522439395-eq1bnuvv00hv30aukjf979osgqe3jk8n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vid.inotrack",
+            "certificate_hash": "5606e09f18b44b163236edb38f7ee4e25bab5994"
+          }
+        },
+        {
+          "client_id": "253522439395-auuumup3bctua9ujc00q9csflmo3m994.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "253522439395-auuumup3bctua9ujc00q9csflmo3m994.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4mZWwgW1ZKuC3iYw7y3MSdvZ7EyDlUCk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253522439395-auuumup3bctua9ujc00q9csflmo3m994.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

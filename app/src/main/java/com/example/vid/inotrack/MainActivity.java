@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.setApplicationId("468829116881837");
+        FacebookSdk.sdkInitialize(this);
+        AppEventsLogger.activateApp(this);
+
+
+
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
@@ -36,14 +44,16 @@ public class MainActivity extends AppCompatActivity {
 
                     List<AuthUI.IdpConfig> providers = Arrays.asList(
                             new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
+                            new  AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build(),
                             new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build()
+
                     );
 
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
-                                    .setProviders(providers)//Providers(providers)
+                                    .setAvailableProviders(providers)//Providers(providers)
                                     .build(),
                             RC_SIGN_IN);
                     finish();
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         logOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               AuthUI.getInstance().signOut(MainActivity.this);
+                AuthUI.getInstance().signOut(MainActivity.this);
             }
         });
     }
@@ -78,17 +88,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-         if(requestCode==RC_SIGN_IN)
-         {
-             if(resultCode==RESULT_OK)
-             {
-                 Intent mainIntent=new Intent(MainActivity.this,MainActivity.class);
-                 startActivity(mainIntent);
-             }
-             else if(resultCode==RESULT_CANCELED)
-             {
-                 finish();
-             }
-         }
+        if(requestCode==RC_SIGN_IN)
+        {
+            if(resultCode==RESULT_OK)
+            {
+                Intent mainIntent=new Intent(MainActivity.this,MainActivity.class);
+                startActivity(mainIntent);
+            }
+            else if(resultCode==RESULT_CANCELED)
+            {
+                finish();
+            }
+        }
     }
 }
